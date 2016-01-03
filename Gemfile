@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
-ruby '2.2.2'
+ruby '2.3.0'
 
-gem 'rails',                  '4.2.3'
+gem 'rails',                  '4.2.5'
 gem 'puma',                   '2.11.3'
 gem 'secure_headers',         '2.2.2'
 gem 'jquery-rails',           '4.0.4'
