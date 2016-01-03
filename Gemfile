@@ -15,7 +15,8 @@ gem 'uglifier',               '2.7.1'
 gem 'simple_form',            '3.1.0'
 gem 'flutie',                 '2.0.0'
 gem 'normalize-rails',        '3.0.3'
-gem 'semantic-ui-rails'
+gem 'semantic-ui-rails',      '0.18.0'
+gem 'devise',                 '3.5.3'
 
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'
