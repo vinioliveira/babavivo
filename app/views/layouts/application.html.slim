@@ -6,7 +6,7 @@ html lang="pt"
     meta name="description" content=""
 
     title
-      = page_title(app_name: 'example')
+      = page_title(app_name: 'Baba Vivo')
 
     link href="/favicon.ico" rel=("shortcut icon")
 
@@ -18,5 +18,13 @@ html lang="pt"
       script src="http://html5shim.googlecode.com/svn/trunk/html5.js"
 
   body class=body_class
-    = render 'flash_messages'
-    = yield
+    .ui.fixed.menu
+      .ui.container
+        = link_to root_path, class: 'header item' do
+          img.logo src="/images/logo.png"
+          |
+          | Baba Vivo
+        = link_to 'Players', players_path, class: 'item'
+    .ui.main.container
+      = render 'flash_messages'
+      = yield

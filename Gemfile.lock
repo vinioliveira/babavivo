@@ -39,9 +39,6 @@ GEM
     addressable (2.4.0)
     aggregate (0.2.2)
     arel (6.0.3)
-    autoprefixer-rails (6.2.3)
-      execjs
-      json
     awesome_print (1.6.1)
     bcrypt (3.1.10)
     better_errors (2.1.1)
@@ -73,7 +70,6 @@ GEM
     coffee-script-source (1.10.0)
     colorize (0.7.7)
     columnize (0.9.0)
-    commonjs (0.2.7)
     concurrent-ruby (1.0.0)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
@@ -125,13 +121,6 @@ GEM
     jwt (1.5.2)
     launchy (2.4.3)
       addressable (~> 2.3)
-    less (2.6.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.7.0)
-      actionpack (>= 4.0)
-      less (~> 2.6.0)
-      sprockets (> 2, < 4)
-      tilt
     letter_opener (1.4.1)
       launchy (~> 2.2)
     librato-metrics (1.6.0)
@@ -256,9 +245,8 @@ GEM
       tilt (~> 1.1)
     secure_headers (2.2.2)
       user_agent_parser
-    semantic-ui-rails (0.18.0)
-      autoprefixer-rails
-      less-rails
+    semantic-ui-sass (2.1.6.0)
+      sass (>= 3.2)
     shoulda-matchers (2.8.0)
       activesupport (>= 3.0.0)
     simple_form (3.1.0)
@@ -358,7 +346,7 @@ DEPENDENCIES
   rspec-rails (= 3.3.3)
   sass-rails (= 5.0.3)
   secure_headers (= 2.2.2)
-  semantic-ui-rails (= 0.18.0)
+  semantic-ui-sass (= 2.1.6.0)
   shoulda-matchers (= 2.8.0)
   simple_form (= 3.1.0)
   simplecov (= 0.10.0)
