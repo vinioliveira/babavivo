@@ -26,3 +26,35 @@ body {
   margin-top: 7em;
 }
 
+// Team block
+.team,
+.team > .icon {
+  display: inline;
+  font-size: 1.5em;
+}
+
+.team > .name {
+  margin: 0 .4em;
+}
+
+.scores {
+  display: inline;
+}
+
+.scores > .score:last-child {
+  margin-right: .5em;
+}
+
+.scores > .score:first-child {
+  margin-left: .5em;
+}
+
+.scores > .score {
+  font-size: 2em;
+}
+
+.scores > .signal {
+  vertical-align: super;
+  margin: 0 .4em;
+  font-style: oblique;
+}
