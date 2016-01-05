@@ -1,1 +1,84 @@
-div This is my new page
+.ui.two.column.stackable.grid
+  .column
+    .ui.comments
+      h3.ui.dividing.header Resenha
+      .comment
+        a.avatar
+          img src="http://semantic-ui.com/images/avatar/small/matt.jpg" /
+        .content
+          a.author Matt
+          .metadata
+            span.date Today at 5:42PM
+          .text
+            | How artistic!
+          .actions
+            a.reply Reply
+      .comment
+        a.avatar
+          img src="http://semantic-ui.com/images/avatar/small/elliot.jpg" /
+        .content
+          a.author Elliot Fu
+          .metadata
+            span.date Yesterday at 12:30AM
+          .text
+            p This has been very useful for my research. Thanks as well!
+          .actions
+            a.reply Reply
+        .comments
+          .comment
+            a.avatar
+              img src="http://semantic-ui.com/images/avatar/small/jenny.jpg" /
+            .content
+              a.author Jenny Hess
+              .metadata
+                span.date Just now
+              .text
+                | Elliot you are always so right :)
+              .actions
+                a.reply Reply
+      .comment
+        a.avatar
+          img src="http://semantic-ui.com/images/avatar/small/joe.jpg" /
+        .content
+          a.author Joe Henderson
+          .metadata
+            span.date 5 days ago
+          .text
+            | Dude, this is awesome. Thanks so much
+          .actions
+            a.reply Reply
+
+  .column
+    h3.ui.dividing.header Standing
+    table.ui.red.table
+      thead
+        tr
+          th width=20
+          th
+            th width=100
+          th P
+          th J
+          th M
+          th V
+          th D
+          th %
+          th G
+      tbody
+        - 20.times do |index|
+          tr
+            td ##{index}
+            td
+              img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
+              span John Doe
+            td
+              .ui.label
+                - arrow = ['up green', 'down red'].sample
+                i class="arrow #{arrow} small icon"
+                span 1º
+            td 30
+            td 10
+            td 10
+            td 10
+            td 5
+            td 75
+            td 30
