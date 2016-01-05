@@ -1,0 +1,35 @@
+h1.ui.header Standing
+.ui.divider
+
+table.ui.red.table
+  thead
+    tr
+      th width=20
+      th
+      th width=100
+      th P
+      th J
+      th M
+      th V
+      th D
+      th %
+      th G
+  tbody
+    - 20.times do |index|
+      tr
+        td ##{index}
+        td
+          img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
+          span John Doe
+        td
+          .ui.label
+            - arrow = ['up green', 'down red'].sample
+            i class="arrow #{arrow} icon"
+            span 1º
+        td 30
+        td 10
+        td 10
+        td 10
+        td 5
+        td 75
+        td 30
