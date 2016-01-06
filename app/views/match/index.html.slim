@@ -1,0 +1,69 @@
+.ui.vertical.center.aligned.segment
+  h1.ui.header Jogo
+  .team
+    span.team.name Time 1
+    i.shield.green.icon
+  .scores
+    span.score 0
+    span.signal x
+    span.score 2
+  .team
+    i.shield.red.icon
+    span.team.name Time 1
+
+  .ui.horizontal.divider Próximo Time
+  .team
+    span.team.name Time 3
+    i.shield.yellow.icon
+
+br
+.ui.equal.width.grid
+  .column
+    .ui.raised.segment
+      h3.ui.dividing.header
+        i.shield.green.icon
+        .content Time 1
+      table.ui.very.basic.table
+        tbody
+          - 5.times do |index|
+            tr
+              td
+                .ui.image.header
+                  img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
+                  .content
+                    | John Doe ##{index}
+                    .sub.header Meio de Campo
+              td
+                .stats
+                  i.soccer.icon
+                  | 4
+                  i.square.yellow.icon
+                  | 2
+                  i.square.red.icon
+                  | 0
+
+  .column
+    .ui.raised.segment
+      h3.ui.dividing.header
+        i.shield.red.icon
+        .content Time 2
+      table.ui.very.basic.table
+        tbody
+          - 5.times do |index|
+            tr
+              td
+                .ui.image.header
+                  img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
+                  .content
+                    | John Doe ##{index}
+                    .sub.header Meio de Campo
+              td
+                .stats
+                  i.soccer.icon
+                  | 4
+                  i.square.yellow.icon
+                  | 2
+                  i.square.red.icon
+                  | 0
+br
+.ui.large.right.floated.button Fim de Jogo
