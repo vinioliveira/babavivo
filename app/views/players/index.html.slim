@@ -1,16 +1,17 @@
 h1.ui.header Plyaers
 .ui.divider
-.ui.cards.centered
-  - (1..10).each do
-    .card.
+.ui.cards.centered.players
+  - @players.each do |player|
+    .card.player
       .image
-        img src="http://semantic-ui.com/images/avatar2/large/elyse.png"
+        img src="#{player.avatar}"
       .content
-        .header Vinicius Oliveira
-      .extra.content
+        .header.name  #{player.name}
         span.right.floated 300 Goals
         span
           i.user.icon
           | 500 wins
-
-
+      .extra.content
+        .ui.two.buttons
+          = link_to 'Editar', edit_player_path(player), class: 'ui basic green button edit'
+          = link_to 'Excluri', player_path(player), method: :delete,  data: { confirm: 'Are you sure?' }, class: 'ui basic red button remove'

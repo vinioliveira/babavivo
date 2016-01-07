@@ -4,17 +4,9 @@
     .avatar
       img.ui.medium.circular.image src="http://semantic-ui.com/images/avatar/large/steve.jpg"
   .column
-    form.ui.form
-      .field
-        label Nome
-        input name="first-name" placeholder="Nome" type="text"
-      .field
-         label Número
-         input name="number_shirt" placeholder="Numero Camisa" type="text"
-      .field
-        label Emails
-        input name="email" placeholder="Email" type="email"
-      .field
-        label Posiçõa
-        input name="position" placeholder="Posição" type="text"
-      button.ui.button type="submit"  Submit
+    = simple_form_for(@player, html: { id: 'player', class: 'ui form' }) do |f|
+      =f.input :name, input_html: { placeholder: 'Nome' }
+      =f.input :number_shirt, input_html: { placeholder: 'Número Camisa' }
+      =f.input :email, input_html: { placeholder: 'Email', type: 'email' }
+      =f.input :position, input_html: { placeholder: 'Posiçõa' }
+      = f.button :submit, 'Salvar'
