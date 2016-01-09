@@ -11,5 +11,8 @@ RSpec.describe Player, type: :model do
       it { expect(subject).to validate_uniqueness_of(:email) }
   end
 
+  describe 'associations' do
+    it { expect(subject).to have_and_belong_to_many(:teams) }
+  end
 
 end
