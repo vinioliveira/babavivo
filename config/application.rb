@@ -17,6 +17,7 @@ Bundler.require(*Rails.groups)
 
 module Babavivo
   class Application < Rails::Application
+
     # Do not generate specs for views and requests. Also, do not generate assets.
     config.generators do |g|
       g.helper false
@@ -53,5 +54,10 @@ module Babavivo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # Use the responders controller from the responders gem
+    config.app_generators.scaffold_controller :responders_controller
+
+    config.responders.flash_keys = [ :success, :error ]
   end
 end

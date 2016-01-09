@@ -18,6 +18,7 @@ gem 'normalize-rails',        '3.0.3'
 gem 'semantic-ui-sass',       '2.1.6.0'
 gem 'devise',                 '3.5.3'
 gem 'omniauth-facebook',      '2.0.1'
+gem 'responders',             '2.1.1'
 
 group :production, :staging do
   gem 'rails_12factor',       '0.0.3'

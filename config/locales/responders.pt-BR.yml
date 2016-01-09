@@ -1,0 +1,12 @@
+pt-BR:
+  flash:
+    actions:
+      create:
+        success: '%{resource_name} criado com sucesso.'
+        error: '%{resource_name} não pode ser salvo.'
+      update:
+        success: '%{resource_name} atualizado com sucesso.'
+        error: '%{resource_name} não pode ser atualizado.'
+      destroy:
+        success: '%{resource_name} desativado com sucesso.'
+        error: '%{resource_name} não pode ser excluído.'

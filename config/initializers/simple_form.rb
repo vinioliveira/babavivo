@@ -120,7 +120,7 @@ SimpleForm.setup do |config|
 
   # You can define the default class to be used on forms. Can be overriden
   # with `html: { :class }`. Defaulting to none.
-  config.form_class = 'ui form'
+  config.default_form_class = 'ui form'
 
   # You can define which elements should obtain additional classes
   # config.generate_additional_classes_for = [:wrapper, :label, :input]
