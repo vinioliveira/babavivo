@@ -13,6 +13,6 @@ RSpec.describe Player, type: :model do
 
   describe 'associations' do
     it { expect(subject).to have_and_belong_to_many(:teams) }
+    it { expect(subject).to have_one(:standing) }
   end
-
 end

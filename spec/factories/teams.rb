@@ -4,5 +4,4 @@ FactoryGirl.define do
     name "MyString"
     after(:create) {|team| team.players = [create(:player)]}
   end
-
 end

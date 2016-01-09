@@ -1,35 +1,37 @@
 h1.ui.header Standing
 .ui.divider
 
-table.ui.red.table
+table.ui.red.table.players
   thead
     tr
       th width=20
       th
       th width=100
-      th P
       th J
-      th M
       th V
       th D
+      th E
       th %
-      th G
+      th P
   tbody
-    - 20.times do |index|
-      tr
-        td ##{index}
+    - @players.each_with_index do |player, index|
+      tr.player
+        td.position ##{player&.standing&.position || 0}º
         td
           img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
-          span John Doe
-        td
+          span #{player.name}
+        td.last_position
           .ui.label
-            - arrow = ['up green', 'down red'].sample
-            i class="arrow #{arrow} small icon"
-            span 1º
-        td 30
-        td 10
-        td 10
-        td 10
-        td 5
-        td 75
-        td 30
+            - if player&.standing&.difference_last_position&.zero?
+              i class="minus grey small icon"
+            - elsif player&.standing&.difference_last_position&.positive?
+              i class="arrow up green small icon"
+            - else
+              i class="arrow down red small icon"
+            span #{player&.standing&.difference_last_position || 0}º
+        td.matchs #{player&.standing&.matchs || 0}
+        td.wins #{player&.standing&.wins || 0}
+        td.loss #{player&.standing&.loss || 0}
+        td.drawns #{player&.standing&.drawn || 0}
+        td.average #{player&.standing&.average || 0}
+        td.points #{player&.standing&.points || 0}

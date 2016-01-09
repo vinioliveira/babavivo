@@ -4,6 +4,7 @@ class Player < ActiveRecord::Base
   devise :omniauthable, :omniauth_providers => [:facebook]
 
   has_and_belongs_to_many :teams
+  has_one :standing
 
   validates :name, :email, :position, :number_shirt, presence: true
   validates :email, uniqueness: true

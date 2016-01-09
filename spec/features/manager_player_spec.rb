@@ -13,7 +13,8 @@ RSpec.feature "ManagePlayer", type: :feature do
       end
 
       it 'exibir o nome de todos os jogadores' do
-        expect(page.all(:css, '.players > .player  .name').map(&:text)).to match_array(players.map(&:name))
+        expect(page.all(:css, '.players > .player  .name').map(&:text)).to
+          match_array(players.map { |player| player.standing.position })
       end
 
       it 'exibir a opção para excluir ou editar o jogador' do
