@@ -12,7 +12,7 @@ class CreatePlayers < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :users, :provider, unique: true
-    add_index :users, :uid, unique: true
+    add_index :players, :provider, unique: true
+    add_index :players, :uid, unique: true
   end
 end
