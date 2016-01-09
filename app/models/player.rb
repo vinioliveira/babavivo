@@ -3,5 +3,6 @@ class Player < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :omniauthable, :omniauth_providers => [:facebook]
 
-  validates_presence_of :name, :email, :position, :number_shirt
+  validates :name, :email, :position, :number_shirt, presence: true
+  validates :email, uniqueness: true
 end
