@@ -1,22 +1,33 @@
 class PlayersController < ApplicationController
+  responders :flash
+
   def index
     @players = Player.all
+  end
+
+  def edit
+    @player = Player.find(params[:id])
   end
 
   def new
     @player = Player.new
   end
 
-  def create
-    @player = Player.new(player_params)
+  def update
+    @player = Player.find(params[:id])
+    @player.update_attributes(player_params)
+    respond_with @player, location: -> { players_path }
+  end
 
-    if @player.save
-      flash[:success] = "Jogador cadastrado com sucesso"
-      redirect_to action: :index
-    else
-      flash[:error] = "Por favor preencha os campos obrigatórios"
-      render :new
-    end
+  def create
+    @player = Player.create(player_params)
+    respond_with @player, location: -> { players_path }
+  end
+
+  def destroy
+    @player = Player.find(params[:id])
+    @player.destroy
+    respond_with @player, location: -> { players_path }
   end
 
   private

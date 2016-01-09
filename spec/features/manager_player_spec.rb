@@ -42,8 +42,33 @@ RSpec.feature "ManagePlayer", type: :feature do
       end
     end
 
-    it 'editar um usuário'
-    it 'desativar um jogador'
+    context 'editar um usuário' do
+      let(:current_player) { current_player = players.first }
+
+      it 'com sucesso quando todos os dados forem corretos' do
+        visit "/players/#{current_player.id}/edit"
+
+        fill_in('player[name]', with: "#{current_player.name} new")
+        click_button('Salvar')
+        expect(page).to have_css('.ui.green.message', count:1)
+      end
+
+      it 'com erro quando nenhum campo for preenchido' do
+        visit "/players/#{current_player.id}/edit"
+
+        fill_in('player[name]', with: "")
+        click_button('Salvar')
+        expect(page).to have_css('.ui.red.message', count:1)
+      end
+    end
+
+    context 'desativar um jogador' do
+      it 'com sucesso' do
+        visit "/players"
+        first('.players > .player a.remove').click
+        expect(page).to have_css('.ui.green.message', count:1)
+      end
+    end
   end
 end
 
