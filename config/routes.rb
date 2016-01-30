@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   resources :players
   get 'standings/overall', to: 'standings#overall'
-  get 'scores/:season/:week', to: 'scores#index'
+  get 'scores/:season/:round', to: 'scores#index'
   get 'match', to: 'match#index'
 
   root 'home#index'
