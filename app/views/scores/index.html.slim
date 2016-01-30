@@ -3,45 +3,18 @@ h1.ui.center.aligned.header Week 1
 .ui.two.column.stackable.grid
   .column
     .ui.segments
-      - 10.times do
+      - @weekly_standing&.matchs&.each do |m|
         .ui.center.aligned.red.segment
           .team
-            span.team.name Time 1
-            i.shield.green.icon
+            span.team.name #{m.first_team.name}
+            i.shield.icon class="#{m.first_team.color}"
           .scores
-            span.score 0
+            span.score #{m.first_team_score}
             span.signal x
-            span.score 2
+            span.score #{m.second_team_score}
           .team
             i.shield.red.icon
-            span.team.name Time 1
+            span.team.name #{m.second_team.name}
   .column
-    table.ui.red.table
-      thead
-        tr
-          th width=20
-          th T
-          th P
-          th J
-          th M
-          th V
-          th D
-          th %
-          th G
-      tbody
-        - 10.times do |index|
-          tr
-            td ##{index}
-            td
-              img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
-              span John Doe
-            td
-              - arrow = ['green', 'red'].sample
-              i class="shield #{arrow} icon"
-            td 30
-            td 10
-            td 10
-            td 10
-            td 5
-            td 75
-            td 30
+    = render 'standings/collection', players: @weekly_standing.players if @weekly_standing
+

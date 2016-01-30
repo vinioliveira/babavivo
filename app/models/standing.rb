@@ -1,5 +1,6 @@
 class Standing < ActiveRecord::Base
   belongs_to :player
+  belongs_to :weekly_standing
 
   validates :points,
             :wins,

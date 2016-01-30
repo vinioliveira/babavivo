@@ -8,5 +8,7 @@ FactoryGirl.define do
     average 1
     position 1
     last_position 2
+    weekly_standing
+    player
   end
 end

@@ -1,21 +1,11 @@
 FactoryGirl.define do
-
-  sequence :email do |n|
-    "user#{n}@awesome.com"
-  end
-
-  sequence :name do |n|
-    "john doe #{n}"
-  end
-
   factory :player do
-    name
+    sequence(:email) { |n| "person#{n}@example.com" }
+    sequence(:name) { |n| "John Doe #{n}" }
     position "MyString"
-    number_shirt 1
-    email
+    sequence(:number_shirt) { |n| n }
     avatar "MyString"
     provider "MyString"
     uid "MyString"
   end
-
 end

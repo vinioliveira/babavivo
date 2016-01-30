@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160109190508) do
+ActiveRecord::Schema.define(version: 20160130210511) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matches", force: :cascade do |t|
+    t.integer  "first_team_id"
+    t.integer  "second_team_id"
+    t.integer  "first_team_score"
+    t.integer  "second_team_score"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "weekly_standing_id"
+  end
+
+  add_index "matches", ["first_team_id"], name: "index_matches_on_first_team_id", using: :btree
+  add_index "matches", ["second_team_id"], name: "index_matches_on_second_team_id", using: :btree
 
   create_table "players", force: :cascade do |t|
     t.string   "name"
@@ -51,17 +64,18 @@ ActiveRecord::Schema.define(version: 20160109190508) do
   end
 
   create_table "standings", force: :cascade do |t|
-    t.integer  "points",        default: 0
-    t.integer  "wins",          default: 0
-    t.integer  "loss",          default: 0
-    t.integer  "drawn",         default: 0
-    t.integer  "average",       default: 0
-    t.integer  "matchs",        default: 0
-    t.integer  "position",      default: 0
-    t.integer  "last_position", default: 0
+    t.integer  "points",             default: 0
+    t.integer  "wins",               default: 0
+    t.integer  "loss",               default: 0
+    t.integer  "drawn",              default: 0
+    t.integer  "average",            default: 0
+    t.integer  "matchs",             default: 0
+    t.integer  "position",           default: 0
+    t.integer  "last_position",      default: 0
     t.integer  "player_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "weekly_standing_id"
   end
 
   add_index "standings", ["player_id"], name: "index_standings_on_player_id", using: :btree
@@ -74,4 +88,13 @@ ActiveRecord::Schema.define(version: 20160109190508) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "weekly_standings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "round"
+    t.integer  "season"
+  end
+
+  add_foreign_key "matches", "teams", column: "first_team_id"
+  add_foreign_key "matches", "teams", column: "second_team_id"
 end
