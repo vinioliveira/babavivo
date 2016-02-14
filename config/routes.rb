@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   resources :matches, only: [:index, :show]
   get 'standings/overall', to: 'standings#overall'
   get 'scores/:season/:round', to: 'scores#index'
-  get 'match', to: 'match#index'
 
   root 'home#index'
 end
