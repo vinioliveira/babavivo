@@ -1,2 +1,15 @@
 language: ruby
-
+before_install:
+  - gem update --system
+  - gem update bundler
+before_script:
+  - psql -c 'create database babavivo_test' -U postgres
+bundler_args: --binstubs=./bundler_stubs
+script:
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rspec spec
+services:
+  - postgresql
+addons:
+  postgresql: "9.4"
+cache: bundler
