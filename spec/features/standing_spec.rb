@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "Standing", type: :feature do
   let!(:players) { create_list(:player, 5) }
-  let!(:standings) { players.map {|player| create(:standing, player: player)}}
+  let!(:standings) { players.map {|player| create(:standing, player: player, weekly_standing: nil)}}
 
   describe 'Rank de todos os jogadores' do
     before { visit '/standings/overall' }
