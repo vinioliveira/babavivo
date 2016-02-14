@@ -1,15 +1,21 @@
 language: ruby
 before_install:
-  - gem update --system
-  - gem update bundler
-bundler_args: --binstubs=./bundler_stubs
+- gem update --system
+- gem update bundler
+bundler_args: "--binstubs=./bundler_stubs"
 before_script:
-  - bundle exec rake db:setup
+- bundle exec rake db:setup
 script:
-  - RAILS_ENV=test bundle exec rake db:migrate
-  - bundle exec rspec spec
+- RAILS_ENV=test bundle exec rake db:migrate
+- bundle exec rspec spec
 services:
-  - postgresql
+- postgresql
 addons:
-  postgresql: "9.4"
+  postgresql: '9.4'
 cache: bundler
+deploy:
+  provider: heroku
+  app: babavivo
+  on: master
+  api_key:
+    secure: qiHU0+CAwQ6Z+aFCQJHVbzNWWJmi7WyMUPzdFrp2nkd/tRR5Z1biaqsAPnZ1bdvD5hq9lBOryZ45fT2CGe3VK2F8Yvu5A3Y/qMqw00vQalk8tbwAOFQ/rSspCRFbB0MnFdQYPuxaZco7zo9Zgp9Mu802475hu6R2WUWZku6GrgAmTkGIjYyxB9yg+k/xcXOKxRw9y1jBiLMcZCWNvNo0ZB0mAMSROCd6aI7Fx2Au9wSOcpYCG/7F1HnpP+Mdzo3rrjy7Ul2vdIuooBZhVAQG6Mqx+9T49jrKCIfm0fW5T3RtJLV/kdPkZwBzNOxREjAVx23VcXWl5Fp9AIOaLGdVQwMhOADGM2XGHesQ5GO+TGcCJEY4hnV8zvDxZh9BGXzfyMyLJ4h9f4Aj5awsmfgyVzNQ7wjm0mNR/GSwaKjb/ILCbynLr0AWclklDEIt6prQ4v+7FWa9FQcssTduVqaF47ovnXOKMLPhc2Cq7ncquhcfS4l2FmmDzCFSxU0SG6FhpL9cd/anZ9fWTQatM/Esb8WluntRgR7Lgr+paZcQyyQS8Y4bqhVhMOLzoAT3sqZ1BS9aks4MO/9H4Px24/Jqh3BdST9dtE73bke/C2jy7MF4qXXJlG6i57dlFQpbFQujKkkXeCQ0xgpE0lfFwwMsvLtENeTMTKK8sz5u4Gm4a4o=
