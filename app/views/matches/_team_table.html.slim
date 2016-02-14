@@ -1,0 +1,22 @@
+.ui.raised.segment class="team_#{team.id}"
+  .ui.dividing.header
+    i.shield.icon class="#{team.color}"
+    .content #{team.name}
+  table.ui.very.basic.table.players
+    tbody
+      - team.players.each do |player|
+        tr.player
+          td
+            .ui.image.header
+              img class="ui avatar image" src="http://semantic-ui.com/images/avatar2/large/elyse.png"
+              .content.name
+                | #{player.name}
+                .sub.header #{player.position}
+          td
+            .stats
+              i.soccer.icon
+              span.score 4
+              i.square.yellow.icon
+              span.yellow.card 2
+              i.square.red.icon
+              span.red.card 2

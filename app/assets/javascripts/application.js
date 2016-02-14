@@ -15,3 +15,12 @@
 //= require turbolinks
 //= require semantic-ui
 //= require_tree .
+//
+
+$('.ui.modal').modal('show');
+
+// What I need to do to get this done?
+
+// Create a new html view to display the mathc detail
+// Create a js view to run the command to show the html partial
+// Bind click event to call the show event from the controller

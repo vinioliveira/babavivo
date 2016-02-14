@@ -1,0 +1,18 @@
+.ui.vertical.center.aligned.segment
+  h1.ui.header Jogo
+  .team
+    span.first.team.name #{match.first_team.name}
+    i.shield.icon class="#{match.first_team.color}"
+  .scores
+    span.first.team.score #{match.first_team_score}
+    span.signal x
+    span.second.team.score #{match.second_team_score}
+  .team
+    i.shield.icon class="#{match.second_team.color}"
+    span.second.team.name #{match.second_team.name}
+.ui.equal.width.grid
+  .column
+    = render "team_table", team: match.first_team
+  .column
+    = render "team_table", team: match.second_team
+

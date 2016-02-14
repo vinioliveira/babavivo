@@ -16,6 +16,17 @@ ActiveRecord::Schema.define(version: 20160130210511) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "match_reports", force: :cascade do |t|
+    t.integer  "player_id"
+    t.integer  "match_id"
+    t.integer  "report",     default: 0
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "match_reports", ["match_id"], name: "index_match_reports_on_match_id", using: :btree
+  add_index "match_reports", ["player_id"], name: "index_match_reports_on_player_id", using: :btree
+
   create_table "matches", force: :cascade do |t|
     t.integer  "first_team_id"
     t.integer  "second_team_id"
@@ -95,6 +106,8 @@ ActiveRecord::Schema.define(version: 20160130210511) do
     t.integer  "season"
   end
 
+  add_foreign_key "match_reports", "matches"
+  add_foreign_key "match_reports", "players"
   add_foreign_key "matches", "teams", column: "first_team_id"
   add_foreign_key "matches", "teams", column: "second_team_id"
 end
