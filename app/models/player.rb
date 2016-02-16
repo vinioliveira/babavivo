@@ -15,4 +15,16 @@ class Player < ActiveRecord::Base
     total_scores = total_scores.where(match: match) if match
     total_scores.size
   end
+
+  def red_cards(match=nil)
+    total_scores = match_reports.red_card
+    total_scores = total_scores.where(match: match) if match
+    total_scores.size
+  end
+
+  def yellow_cards(match=nil)
+    total_scores = match_reports.yellow_card
+    total_scores = total_scores.where(match: match) if match
+    total_scores.size
+  end
 end
