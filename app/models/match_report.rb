@@ -4,5 +4,5 @@ class MatchReport < ActiveRecord::Base
   belongs_to :match
   belongs_to :player
 
-  validates :player, :match, uniqueness: true
+  validates :player, :match, presence: true
 end
