@@ -5,7 +5,14 @@ class Player < ActiveRecord::Base
 
   has_and_belongs_to_many :teams
   has_one :standing
+  has_many :match_reports
 
   validates :name, :email, :position, :number_shirt, presence: true
   validates :email, uniqueness: true
+
+  def scores(match=nil)
+    total_scores = match_reports.score
+    total_scores = total_scores.where(match: match) if match
+    total_scores.size
+  end
 end

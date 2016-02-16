@@ -12,7 +12,7 @@
     span.second.team.name #{match.second_team.name}
 .ui.equal.width.grid
   .column
-    = render "team_table", team: match.first_team
+    = render "team_table", team: match.first_team, match: match
   .column
-    = render "team_table", team: match.second_team
+    = render "team_table", team: match.second_team, match: match
 
