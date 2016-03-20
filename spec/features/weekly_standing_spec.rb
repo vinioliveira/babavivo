@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.feature "Weekly Standing", type: :feature do
-  let!(:weekly_standing) { create(:weekly_standing, season: 2016, round: 1) }
+  let!(:weekly_standing) { create(:weekly_standing, :complete, season: 2016, round: 1) }
   let!(:matchs) { weekly_standing.matchs }
   let!(:players) { weekly_standing.players }
 
