@@ -60,4 +60,6 @@ group :development, :test do
   gem 'byebug',                '5.0.0'
   gem 'web-console',           '2.2.1'
   gem 'spring',                '1.3.6'
+  gem 'rubocop',               '0.38.0', require: false
+  gem 'slim_lint',             '0.7.2', require: false
 end
